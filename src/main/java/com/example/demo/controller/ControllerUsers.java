@@ -48,4 +48,8 @@ public class ControllerUsers {
         return userService.deleteUser(id);
     }
 
+    @GetMapping("/update/{id}")
+    public User updateUserById (@PathVariable Long id, @PathVariable User user) {
+        return userService.updateUserById(id, user);
+    }
 }

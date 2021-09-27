@@ -60,4 +60,26 @@ public class UserService {
         return true;
     }
 
+//    public User updateUserById (Long id, User user) {
+//        Optional<User> byId = userRepository.findById(id);
+//        if(byId.isPresent()) {
+//            userRepository.updateById(id, user);
+//            return byId.orElseGet(User::new);
+//        }
+//        return  null;
+//    }
+
+    public User updateUserById (Long id, User user) {
+        Optional<User> byId = userRepository.findById(id);
+        if(user != null) {
+            user.setLogin(user.getLogin());
+            user.setName(user.getName());
+            user.setAge(user.getAge());
+            user.setPassword(user.getPassword());
+            user.setBirthdayDate(user.getBirthdayDate());
+            userRepository.save(user);
+            return user;
+        }
+        return null;
+    }
 }
