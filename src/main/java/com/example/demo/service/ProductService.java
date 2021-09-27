@@ -30,4 +30,9 @@ public class ProductService {
         DataBase.dataBaseProducts.remove(id);
         return true;
     }
+
+    //    public boolean addToProductUser(Long id, User user) {
+//        return true;
+//    }
+
 }

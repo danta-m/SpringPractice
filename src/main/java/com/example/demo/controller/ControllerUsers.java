@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.DTO.UserDTO;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +11,6 @@ import java.util.List;
 @RequestMapping("/users")
 public class ControllerUsers {
 
-
-    private static long id = 1;
     private final UserService userService;
 
     public ControllerUsers(UserService userService) {
@@ -23,9 +22,30 @@ public class ControllerUsers {
         return userService.addUser(user);
     }
 
-    @PostMapping("/all")
-    public List<User> getAllUsers(@RequestBody User user) {
+    @GetMapping("/all")
+    public List<User> getAllUsers() {
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/allDto")
+    public List<UserDTO> getAllUsersDto() {
+        return userService.getAllUsersDto();
+    }
+
+    @GetMapping("/get/{id}")
+    public User findUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
+
+    @GetMapping("/getDto/{id}")
+    public UserDTO getUserByIdDto(@PathVariable Long id) {
+        return userService.getUserByIdDto(id);
+    }
+
+
+    @GetMapping("/delete/{id}")
+    public boolean deleteUser(@PathVariable Long id) {
+        return userService.deleteUser(id);
     }
 
 }

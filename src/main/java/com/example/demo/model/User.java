@@ -8,8 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Builder
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
@@ -17,5 +17,6 @@ public class User {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-
+    private String login;
+    private String password;
 }

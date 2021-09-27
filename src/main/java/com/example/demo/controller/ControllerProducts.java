@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/products")
+
 public class ControllerProducts {
     private static long id = 1;
     private final ProductService productService;
