@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table (name = "Session")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,13 +18,16 @@ import java.util.Set;
 public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "session_id")
     private long id;
+
+    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "title")
+    private Set<Movie> movies;
+
+    @Column (name = "session_date")
     private String time;
-    private double price;
 
-    @ManyToMany (fetch = FetchType.LAZY)
-    private Set<Film> films;
-
-    @OneToMany
-    private List<User> user;
+    @OneToMany (mappedBy = "sessions", fetch = FetchType.LAZY)
+    private Set<Ticket> tickets;
 }

@@ -29,11 +29,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<UserDTO> getAllUsersDto() {
-        return userRepository.findAll().stream()
-                .map(userDto::mapToDto)
-                .collect(Collectors.toList());
-    };
+//    public List<UserDTO> getAllUsersDto() {
+//        return userRepository.findAll().stream()
+//                .map(userDto::mapToDto)
+//                .collect(Collectors.toList());
+//    };
 //        return userDto.mapToDto(userRepository.findAll());
 //    }
 
@@ -42,10 +42,10 @@ public class UserService {
         return byId.orElseGet(User::new);
     }
 
-    public UserDTO getUserByIdDto (Long id) {
-        return userDto.mapToDto(userRepository.findById(id).orElseGet(User::new));
-
-    }
+//    public UserDTO getUserByIdDto (Long id) {
+//        return userDto.mapToDto(userRepository.findById(id).orElseGet(User::new));
+//
+//    }
 //        public User findUserById (long id) {
 //        for (User user : userRepository) {
 //            if (user.getId() == id ) {
@@ -69,17 +69,17 @@ public class UserService {
 //        return  null;
 //    }
 
-    public User updateUserById (Long id, User user) {
-        Optional<User> byId = userRepository.findById(id);
-        if(user != null) {
-            user.setLogin(user.getLogin());
-            user.setName(user.getName());
-            user.setAge(user.getAge());
-            user.setPassword(user.getPassword());
-            user.setBirthdayDate(user.getBirthdayDate());
-            userRepository.save(user);
-            return user;
-        }
-        return null;
-    }
+//    public User updateUserById (Long id, User user) {
+//        Optional<User> byId = userRepository.findById(id);
+//        if(user != null) {
+//            user.setLogin(user.getLogin());
+//            user.setName(user.getName());
+//            user.setAge(user.getAge());
+//            user.setPassword(user.getPassword());
+//            user.setBirthdayDate(user.getBirthdayDate());
+//            userRepository.save(user);
+//            return user;
+//        }
+//        return null;
+//    }
 }

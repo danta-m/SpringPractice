@@ -27,20 +27,20 @@ public class ControllerUsers {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/allDto")
-    public List<UserDTO> getAllUsersDto() {
-        return userService.getAllUsersDto();
-    }
+//    @GetMapping("/allDto")
+//    public List<UserDTO> getAllUsersDto() {
+//        return userService.getAllUsersDto();
+//    }
 
     @GetMapping("/get/{id}")
     public User findUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
-    @GetMapping("/getDto/{id}")
-    public UserDTO getUserByIdDto(@PathVariable Long id) {
-        return userService.getUserByIdDto(id);
-    }
+//    @GetMapping("/getDto/{id}")
+//    public UserDTO getUserByIdDto(@PathVariable Long id) {
+//        return userService.getUserByIdDto(id);
+//    }
 
 
     @GetMapping("/delete/{id}")
@@ -48,8 +48,8 @@ public class ControllerUsers {
         return userService.deleteUser(id);
     }
 
-    @GetMapping("/update/{id}")
-    public User updateUserById (@PathVariable Long id, @PathVariable User user) {
-        return userService.updateUserById(id, user);
-    }
+//    @GetMapping("/update/{id}")
+//    public User updateUserById (@PathVariable Long id, @PathVariable User user) {
+//        return userService.updateUserById(id, user);
+//    }
 }

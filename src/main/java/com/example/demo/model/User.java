@@ -1,11 +1,11 @@
 package com.example.demo.model;
 
 import lombok.*;
-
 import javax.persistence.*;
-import java.util.Date;
+import java.util.Set;
 
 @Entity
+@Table (name = "User")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,13 +13,17 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private long id;
-    private String name;
+    @Column (name = "login")
     private String login;
+    @Column (name = "password")
     private String password;
-    private long age;
-    private String birthdayDate;
 
-    @ManyToOne (cascade = CascadeType.ALL)
-    private Session session;
+    @ManyToMany (cascade=CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn (name = "role_name")
+    private Set<Role> role;
+
+    @OneToMany (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Ticket> tickets;
 }

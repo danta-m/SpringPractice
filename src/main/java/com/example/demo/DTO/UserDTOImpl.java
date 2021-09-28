@@ -9,7 +9,7 @@ public class UserDTOImpl implements UserDTOInt{
     public UserDTO mapToDto(User user) {
         UserDTO dto = new UserDTO();
         dto.setId(user.getId());
-        dto.setName(user.getName());
+        dto.setLogin(user.getLogin());
         return dto;
     }
 
@@ -17,7 +17,7 @@ public class UserDTOImpl implements UserDTOInt{
     public User dtoToUser (UserDTO dto) {
         User user = new User();
         user.setId(dto.getId());
-        user.setName(dto.getName());
+        user.setLogin(dto.getLogin());
         return user;
     }
 }

@@ -6,19 +6,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "Movie")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Film {
+public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "movie_id")
     private long id;
-    private String name;
-    private Enum category;
-    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List <Session> sessionList;
+    @Column (name = "title")
+    private String title;
+    @Column (name = "description")
+    private String description;
+
+    @ManyToMany (mappedBy = "movies", fetch = FetchType.LAZY)
+    private Set<Session> session;
+
 }
