@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -14,6 +13,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class Movie {
     @Column (name = "description")
     private String description;
 
-    @ManyToMany (mappedBy = "movies", fetch = FetchType.LAZY)
-    private Set<Session> session;
+    @OneToMany (mappedBy = "movie", fetch = FetchType.LAZY)
+    private Set<Session> sessions;
 
 }
